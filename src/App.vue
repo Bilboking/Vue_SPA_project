@@ -1,10 +1,19 @@
 <template>
-  <h1>{{title}}</h1>
-  <Modal :header="header" :text="text" theme="sale"/>
-  <!--<input type="text" ref="name">
-  <button @click="handleClick">click me</button>-->
+  <h1>{{title}}</h1><br>
+  <p>Welcome</p>
+  <div v-if="showModal">
+    <Modal  theme="sale" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">sign up now!</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>Bruce's First Modal Box!</h1>
+      <p>Rockin' the Vue.js!</p>
+    </Modal>
+  </div> 
+<button @click.alt="toggleModal">open modal (alt)</button>
 </template>
-
+ 
 <script>
 import Modal from './components/Modal.vue'
 
@@ -15,16 +24,16 @@ export default {
     return {
       title: 'My First Vue App',
       header: "Sign up for the giveaway!",
-      text: "Grab your ninja swag for half price!"
+      text: "Grab your ninja swag for half price!",
+      showModal: false,
     }
   },
   methods: {
-    handleClick(){
-      console.log(this.$refs.name)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
+      toggleModal(){
+        this.showModal = !this.showModal
+      }
     }
-  }
+     
 }
 </script>
 
