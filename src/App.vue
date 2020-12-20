@@ -1,6 +1,6 @@
 <template>
   <h1>{{title}}</h1>
-  <Modal />
+  <Modal :header="header" :text="text" theme="sale"/>
   <!--<input type="text" ref="name">
   <button @click="handleClick">click me</button>-->
 </template>
@@ -13,7 +13,9 @@ export default {
   components: { Modal },
   data(){
     return {
-      title: 'My First Vue App'
+      title: 'My First Vue App',
+      header: "Sign up for the giveaway!",
+      text: "Grab your ninja swag for half price!"
     }
   },
   methods: {
@@ -51,5 +53,6 @@ git push origin -u master
 
 //git checkout -b "directory" or git branch testing <<- then ->> git push -u origin testing
 //git add . 
-//git commit -m "new branch start"
-//git push -u origin directory-->
+//git commit -m "new branch message"
+//git push -u origin branch
+//git push origin branch-->
